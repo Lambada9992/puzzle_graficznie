@@ -3,6 +3,10 @@
 
 #include <ctime>
 #include <cstdlib>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <secondwindow.h>
+#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -14,11 +18,13 @@ MainWindow::MainWindow(QWidget *parent) :
     size_game=3;
     x0=2;y0=2;
 
+
     //wczytywanie do gry
     load_to_game(1,2,3,4,5,6,7,8,0);
 
-
     //do animacji
+    group_animation=nullptr;
+    group_animation=new QSequentialAnimationGroup;
     a_pole=new QPropertyAnimation *[size_icon*size_icon];
     a_pole[0]=nullptr;
     a_pole[1] = new QPropertyAnimation(ui->pole_1,"geometry");
@@ -78,6 +84,17 @@ void MainWindow::load_to_game(int t0,int t1,int t2,int t3,int t4,int t5,int t6,i
     }
     delete []pom;
     set_buttons();
+    if(game.is==false){
+        ui->label->setText("Hint/Solve wyłączone Wczytaj ponownie GRE!!!");
+        ui->przycisk_hint->hide();
+        ui->przycisk_solve->hide();
+    }
+    else{
+        ui->label->setText("");
+        ui->przycisk_hint->show();
+        ui->przycisk_solve->show();
+    }
+
 
 
 }
@@ -117,6 +134,7 @@ void MainWindow::move(int u)
 
 
     if(k!=5){
+
         if(k==0){game.left_tab();}
         if(k==1){game.right_tab();}
         if(k==2){game.up_tab();}
@@ -128,8 +146,8 @@ void MainWindow::move(int u)
         x0=game.x;
         }
 
-    }
 
+    }
 
 void MainWindow::on_pole_1_clicked()
 {
@@ -189,7 +207,6 @@ void MainWindow::on_przycisk_solve_clicked()
         {move(k);}
     }
 
-
 }
 
 void MainWindow::on_randomize_clicked()
@@ -198,5 +215,31 @@ void MainWindow::on_randomize_clicked()
         pom=1+rand()%(8-1+1);
         move(pom);
     }
+
+}
+
+
+void MainWindow::on_actionZapisz_rozwi_zanie_triggered()
+{
+    QString file= QFileDialog::getSaveFileName(this,tr("Zapisywanie rozwiązanie"),"",tr("txt file (*.txt)"));
+
+    if(game.save_solution(file)==false){
+        QMessageBox::warning(this,tr("ERROR"),tr("bład przy zapisie pliku"));
+    }
+}
+
+void MainWindow::on_actionWczytaj_gr_triggered()
+{
+    secondwindow wczytywanie;
+    wczytywanie.setModal(true);
+    if(wczytywanie.exec() == QDialog::Rejected)
+    {
+        if(wczytywanie.get_zmiana()){
+            load_to_game(wczytywanie.get_pole1(),wczytywanie.get_pole2(),wczytywanie.get_pole3(),
+                         wczytywanie.get_pole4(),wczytywanie.get_pole5(),wczytywanie.get_pole6(),
+                         wczytywanie.get_pole7(),wczytywanie.get_pole8(),wczytywanie.get_pole9());
+        }
+    }
+
 
 }

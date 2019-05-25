@@ -4,6 +4,7 @@
 
 #include <QMainWindow>
 #include <QPropertyAnimation>
+#include <QSequentialAnimationGroup>
 #include <puzzle_game.h>
 #include <QTimer>
 
@@ -41,12 +42,16 @@ private slots:
 
     void on_pole_8_clicked();
 
-
     void on_przycisk_hint_clicked();
 
     void on_przycisk_solve_clicked();
 
     void on_randomize_clicked();
+
+
+    void on_actionZapisz_rozwi_zanie_triggered();
+
+    void on_actionWczytaj_gr_triggered();
 
 private:
     Ui::MainWindow *ui;
@@ -55,10 +60,12 @@ private:
     int x0,y0;
 
 
+
     int size_icon;
     int size_game;
 
     QPropertyAnimation **a_pole;
+    QSequentialAnimationGroup *group_animation;
 
 
 

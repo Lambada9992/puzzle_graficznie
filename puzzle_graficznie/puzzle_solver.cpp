@@ -252,6 +252,7 @@ void AS::zwracanie_wyniku(astar *X){
     astar *pom=NULL;
     while(X!=NULL){
         pom=new astar(X->tab,size,NULL);
+        pom->g=X->g;
         pom->next=wynik;
         wynik=pom;
         X=X->parent;

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <puzzle_solver.h>
+#include <QFile>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ public:
     int x;
     int y;
     bool is;
+    bool is_move;
 private:
     AS *W;
 
@@ -34,7 +36,7 @@ public:
     void up_tab();
     void down_tab();
     int hint_tab();
-    void save_solution(string);//DO POPRAWY
+    bool save_solution(QString);//DO POPRAWY
     int move_possibility(int);
 
     gra();

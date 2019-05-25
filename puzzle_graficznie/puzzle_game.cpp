@@ -6,6 +6,7 @@
 #include "PQ_lista.h"
 #include <fstream>
 
+
 using namespace std;
 
 
@@ -88,7 +89,7 @@ void gra::where_is_blank(){
 
 
 void gra::left_tab(){
-    if(size!=0){if(is==true){
+    if(size!=0){if(is_move==true){
             if(y>0){
                 int pom=tab[x][y];
                 tab[x][y]=tab[x][y-1];
@@ -101,7 +102,7 @@ void gra::left_tab(){
 }
 
 void gra::right_tab(){
-    if(size!=0){if(is==true){
+    if(size!=0){if(is_move==true){
             if(y<size-1){
                 int pom=tab[x][y];
                 tab[x][y]=tab[x][y+1];
@@ -111,7 +112,7 @@ void gra::right_tab(){
 }
 
 void gra::up_tab(){
-    if(size!=0){if(is==true){
+    if(size!=0){if(is_move==true){
             if(x>0){
                 int pom=tab[x][y];
                 tab[x][y]=tab[x-1][y];
@@ -121,7 +122,7 @@ void gra::up_tab(){
 }
 
 void gra::down_tab(){
-    if(size!=0){if(is==true){
+    if(size!=0){if(is_move==true){
             if(x<size-1){
                 int pom=tab[x][y];
                 tab[x][y]=tab[x+1][y];
@@ -147,6 +148,7 @@ int gra::hint_tab(){
 
 bool gra::solvable(){
     bool pom3=true;
+    bool is_move=true;
     bool *pom2=new bool[size*size];
     for(int i=0;i<size*size;i++){
         pom2[i]=false;
@@ -160,7 +162,7 @@ bool gra::solvable(){
         if(pom2[i]==false)pom3=false;
     }
     delete []pom2;
-    if(pom3==false) {is=false;return pom3;}
+    if(pom3==false) {is_move=false;is=false;return pom3;}
 
     int *pom=new int [size*size];
     int ilosc_zmian=0;
@@ -229,7 +231,9 @@ bool gra::compare_tab(int **tab1,int **tab2){
 
 
 
-void gra::save_solution(string nazwa){
+bool gra::save_solution(QString nazwa1){
+    int pom;
+    string nazwa=nazwa1.toUtf8().constData();
     if(W!=NULL){if(is){
             ofstream plik;
             plik.open(nazwa.c_str());
@@ -243,25 +247,41 @@ void gra::save_solution(string nazwa){
                 }
             }
 
+
             do{
                 for(int i=0;i<size;i++){
-                    for(int j=0;j<size;j++){
-                        plik<<setw(3)<<tab[i][j];
-                    }if(i!=size)plik<<endl;
-                }
-                W->status(tab);
-                if(W->hint()!=5){
-                    plik<<endl;
-                    plik<<"      |       "<<endl;
-                    plik<<"      |       "<<endl;
-                    plik<<"    __|__     "<<endl;
-                    plik<<"    |||||     "<<endl;
-                    plik<<"     |||      "<<endl;
-                    plik<<"      |      "<<endl;
+                        for(int j=0;j<size;j++){
+                            plik<<"|"<<setw(2)<<tab[i][j];
+                        }plik<<"|"<<endl;if(i<size-1){
+                            for(int k=0;k<size;k++){plik<<"---";}plik<<"-"<<endl;}
+                    }
                     plik<<endl;
 
+
+
+//                for(int i=0;i<size;i++){
+//                    for(int j=0;j<size;j++){
+//                        plik<<"|"<<setw(3)<<tab[i][j];
+//                    }if(i!=size)plik<<endl;
+//                }
+                W->status(tab);
+                if(W->hint()!=5){
+
+
+                    plik<<"     |       "<<endl;
+                    plik<<"    _|_      "<<endl;
+                    plik<<"    |||      "<<endl;
+                    plik<<"     |       "<<endl;
+                    plik<<"              "<<endl;
+
+
                 }
-                hint_tab();
+                pom=W->hint();
+                if(pom==0){left_tab();}
+                if(pom==1){right_tab();}
+                if(pom==2){up_tab();}
+                if(pom==3){down_tab();}
+
 
 
 
@@ -272,15 +292,17 @@ void gra::save_solution(string nazwa){
 
 
             plik.close();
+
             wczytaj_tab(tablica,size);
             for(int i=0;i<size;i++){
                 delete []tablica[i];
 
             }
             delete []tablica;
+            return true;
 
-
-        }}
+        }else{return false;}
+    }else{return false;}
 }
 
 int gra::move_possibility(int k)
