@@ -251,16 +251,17 @@ void MainWindow::on_actionWczytaj_gr_triggered()
 {
     secondwindow wczytywanie;
     wczytywanie.setModal(true);
-    if(wczytywanie.exec() == QDialog::Rejected)
-    {
-        if(wczytywanie.get_zmiana()){
-            load_to_game(wczytywanie.get_pole1(),wczytywanie.get_pole2(),wczytywanie.get_pole3(),
-                         wczytywanie.get_pole4(),wczytywanie.get_pole5(),wczytywanie.get_pole6(),
-                         wczytywanie.get_pole7(),wczytywanie.get_pole8(),wczytywanie.get_pole9());
-        }else{
-            QMessageBox::warning(this,tr("error"),tr("Gra nie została wczytana ponieważ tablica nie została wypełniona prawidłowo!!!"));
+    wczytywanie.exec();
+    if(wczytywanie.get_wywolanie()){
+            if(wczytywanie.get_zmiana()){
+                load_to_game(wczytywanie.get_pole1(),wczytywanie.get_pole2(),wczytywanie.get_pole3(),
+                             wczytywanie.get_pole4(),wczytywanie.get_pole5(),wczytywanie.get_pole6(),
+                             wczytywanie.get_pole7(),wczytywanie.get_pole8(),wczytywanie.get_pole9());
+            }else{
+                QMessageBox::warning(this,tr("error"),tr("Gra nie została wczytana ponieważ tablica nie została wypełniona prawidłowo!!!"));
+            }
         }
-    }
+
 
 
 }

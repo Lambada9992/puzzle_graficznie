@@ -49,6 +49,7 @@ public:
     int get_pole8();
     /// zwraca jaka liczba znajdywala się w polu 9
     int get_pole9();
+    bool get_wywolanie()const;
 
 
 
@@ -71,6 +72,7 @@ private:
     int pole7;
     int pole8;
     int pole9;
+    int wywolanie;
 
     void wczytaj_liczby(QComboBox *);
     void wczytaj_combo();

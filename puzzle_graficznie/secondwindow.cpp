@@ -20,6 +20,7 @@ secondwindow::secondwindow(QWidget *parent) :
     ui->setupUi(this);
     wczytaj_combo();
     zmiana=false;
+    wywolanie=false;
 
 
 }
@@ -112,6 +113,11 @@ int secondwindow::get_pole9()
     return string_to_int(ui->comboBox_9->currentText());
 }
 
+bool secondwindow::get_wywolanie() const
+{
+    return wywolanie;
+}
+
 
 void secondwindow::on_Wczytaj_clicked()
 {   int tab[3][3];
@@ -136,7 +142,7 @@ void secondwindow::on_Wczytaj_clicked()
     if(pom==true){zmiana=true;}else{zmiana=false;}
 
 
-
+    wywolanie=true;
     this->close();
 
 
