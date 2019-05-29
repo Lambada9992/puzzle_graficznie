@@ -15,7 +15,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <secondwindow.h>
-#include <QDebug>
+
 
 
 MainWindow::MainWindow(QWidget *parent) :

@@ -15,9 +15,8 @@
 
 #include <QMainWindow>
 #include <QPropertyAnimation>
-#include <QSequentialAnimationGroup>
 #include <puzzle_game.h>
-#include <QTimer>
+
 
 namespace Ui {
 class MainWindow;
