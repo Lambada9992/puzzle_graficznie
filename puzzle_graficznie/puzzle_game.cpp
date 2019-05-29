@@ -1,3 +1,12 @@
+/**
+ * \file puzzle_game.cpp
+ * \brief Plik nagłówkowy modułu \a puzzle_game.
+ *
+ * Moduł \a puzzle_game zawiera definicję klasy gra(8 puzzle)
+ * (zawiera pole gry oraz funkcje pozwalające na gre takie jak ruchy)
+ *
+ * \see PQ_lista.h
+ */
 #include "puzzle_game.h"
 #include <iostream>
 #include <iomanip>
@@ -30,6 +39,7 @@ gra::~gra(){
 
     delete W;
 }
+
 
 void gra::wczytaj_tab(int **tablica,int N){
     if(size!=0){
@@ -67,16 +77,6 @@ void gra::wczytaj_tab(int **tablica,int N){
         W=new AS(tab,goal,size);
     }
 
-}
-
-void gra::print_tab(){
-    for(int i=0;i<size;i++){
-        for(int j=0;j<size;j++){
-            cout<<"|"<<setw(2)<<tab[i][j];
-        }cout<<"|"<<endl;if(i<size-1){
-            for(int k=0;k<size;k++){cout<<"---";}cout<<"-"<<endl;}
-    }
-    cout<<endl;
 }
 
 void gra::where_is_blank(){
@@ -130,6 +130,7 @@ void gra::down_tab(){
                 x++;}
         }}
 }
+
 
 int gra::hint_tab(){
     if(W!=NULL){if(is){
@@ -205,21 +206,6 @@ bool gra::solvable(){
 
 }
 
-void gra::rand_tab(){
-    srand(time(0));
-    int los;
-    int ilosc_losow;
-    //ilosc_losow=20+rand()%(100-20+1);
-    ilosc_losow=50;
-    for(int i=0;i<ilosc_losow;i++){
-        los=rand()%(3-0+1);
-        if(los==0){left_tab();}
-        if(los==1){right_tab();}
-        if(los==2){up_tab();}
-        if(los==3){down_tab();}
-    }
-}
-
 bool gra::compare_tab(int **tab1,int **tab2){
     bool g_state=true;
     for(int i=0;i<size;i++){
@@ -228,8 +214,6 @@ bool gra::compare_tab(int **tab1,int **tab2){
         }
     }return g_state;
 }
-
-
 
 bool gra::save_solution(QString nazwa1){
     int pom;
@@ -250,20 +234,20 @@ bool gra::save_solution(QString nazwa1){
 
             do{
                 for(int i=0;i<size;i++){
-                        for(int j=0;j<size;j++){
-                            plik<<"|"<<setw(2)<<tab[i][j];
-                        }plik<<"|"<<endl;if(i<size-1){
-                            for(int k=0;k<size;k++){plik<<"---";}plik<<"-"<<endl;}
-                    }
-                    plik<<endl;
+                    for(int j=0;j<size;j++){
+                        plik<<"|"<<setw(2)<<tab[i][j];
+                    }plik<<"|"<<endl;if(i<size-1){
+                        for(int k=0;k<size;k++){plik<<"---";}plik<<"-"<<endl;}
+                }
+                plik<<endl;
 
 
 
-//                for(int i=0;i<size;i++){
-//                    for(int j=0;j<size;j++){
-//                        plik<<"|"<<setw(3)<<tab[i][j];
-//                    }if(i!=size)plik<<endl;
-//                }
+                //                for(int i=0;i<size;i++){
+                //                    for(int j=0;j<size;j++){
+                //                        plik<<"|"<<setw(3)<<tab[i][j];
+                //                    }if(i!=size)plik<<endl;
+                //                }
                 W->status(tab);
                 if(W->hint()!=5){
 

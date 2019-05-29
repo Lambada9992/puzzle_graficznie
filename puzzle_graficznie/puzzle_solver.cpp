@@ -1,3 +1,12 @@
+/**
+ * \file puzzle_solver.cpp
+ * \brief Plik nagłówkowy modułu \a puzzle_game.
+ *
+ * Moduł \a puzzle_game zawiera definicję klasy Astar i AS
+ * które odpowiadaja za system znajdywania rozwiązania gry(8 puzzle)
+ *
+ * \see puzzle_solver.h
+ */
 #include "puzzle_solver.h"
 #include <iostream>
 #include <math.h>

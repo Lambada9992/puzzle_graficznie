@@ -1,3 +1,14 @@
+/**
+ * \file secondwindow.cpp
+ * \brief Plik implementacji modułu \a mainwindow.
+ *
+ * Moduł \a mainwindow zawiera interfejs graficzny oraz funkcje
+ * okna wczytywania nowego stanu gry
+ *
+ *
+ * \see secondwindow.h
+ */
+
 #include "secondwindow.h"
 #include "ui_secondwindow.h"
 #include "mainwindow.h"
@@ -129,4 +140,9 @@ void secondwindow::on_Wczytaj_clicked()
     this->close();
 
 
+}
+
+void secondwindow::on_Anuluj_clicked()
+{
+    this->close();
 }

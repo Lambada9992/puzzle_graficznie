@@ -1,0 +1,8 @@
+<map id="C:/Users/Marcin/Desktop/Git/puzzle_graficznie/puzzle_graficznie/puzzle_game.h" name="C:/Users/Marcin/Desktop/Git/puzzle_graficznie/puzzle_graficznie/puzzle_game.h">
+<area shape="rect" id="node1" title="Plik nagłówkowy modułu puzzle_game." alt="" coords="322,5,541,61"/>
+<area shape="rect" id="node2" href="$mainwindow_8h.html" title="Plik implementacji modułu mainwindow." alt="" coords="219,117,430,173"/>
+<area shape="rect" id="node6" href="$puzzle__game_8cpp.html" title="Plik nagłówkowy modułu puzzle_game." alt="" coords="454,109,622,180"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="Plik z funkcją main(int argc, char* argv[])" alt="" coords="5,228,188,284"/>
+<area shape="rect" id="node4" href="$mainwindow_8cpp.html" title="Plik implementacji modułu mainwindow." alt="" coords="212,228,437,284"/>
+<area shape="rect" id="node5" href="$secondwindow_8cpp.html" title="Plik implementacji modułu mainwindow." alt="" coords="461,228,700,284"/>
+</map>

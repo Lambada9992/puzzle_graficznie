@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Plik źródłowy C:/Users/Marcin/Desktop/Git/puzzle_graficznie/puzzle_graficznie/puzzle_game.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_501bdb11da9e3ff85a05ee91b220e720.html">Git</a></li><li class="navelem"><a class="el" href="dir_ab72c4b8a4c9c9ea25e32166feee6bcf.html">puzzle_graficznie</a></li><li class="navelem"><a class="el" href="dir_de007162e02cefac4b7f979909c1389f.html">puzzle_graficznie</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">puzzle_game.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="puzzle__game_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef PUZZLE_GAME_H</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define PUZZLE_GAME_H</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="puzzle__solver_8h.html">puzzle_solver.h</a>&gt;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QFile&gt;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">using namespace </span>std;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classgra.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgra.html">gra</a>{</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classgra.html#a8862de0ab63b0683619eee1a1bd72854">   26</a></span>&#160;    <span class="keywordtype">int</span> **<a class="code" href="classgra.html#a8862de0ab63b0683619eee1a1bd72854">goal</a>;</div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classgra.html#adcf57011023ae68668fa242c3eb57302">   27</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classgra.html#adcf57011023ae68668fa242c3eb57302">size</a>;</div><div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classgra.html#a833dd3d9bdda648cd8577bf4b55374e4">   28</a></span>&#160;    <span class="keywordtype">int</span> **<a class="code" href="classgra.html#a833dd3d9bdda648cd8577bf4b55374e4">tab</a>;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classgra.html#aed9acbf7b5f82c3f0dea1ccca8eb6169">   30</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classgra.html#aed9acbf7b5f82c3f0dea1ccca8eb6169">x</a>;</div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classgra.html#a07546b16dcf06970a4681058f2e75463">   31</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classgra.html#a07546b16dcf06970a4681058f2e75463">y</a>;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classgra.html#a4f33f2ac9ae43575cc569997999b0040">   32</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgra.html#a4f33f2ac9ae43575cc569997999b0040">is</a>;</div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classgra.html#a53333ff512facc8ed09a436868aec6dd">   33</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgra.html#a53333ff512facc8ed09a436868aec6dd">is_move</a>;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_a_s.html">AS</a> *W;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> where_is_blank();</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> solvable();</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> compare_tab(<span class="keywordtype">int</span> **,<span class="keywordtype">int</span> **);</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> wczytaj_tab(<span class="keywordtype">int</span> **tab,<span class="keywordtype">int</span> N);</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> left_tab();</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> right_tab();</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> up_tab();</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> down_tab();</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">int</span> hint_tab();</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">bool</span> save_solution(QString);</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">int</span> move_possibility(<span class="keywordtype">int</span>);</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="classgra.html">gra</a>();</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    ~<a class="code" href="classgra.html">gra</a>();</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;};</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif // PUZZLE_GAME_H</span></div><div class="ttc" id="puzzle__solver_8h_html"><div class="ttname"><a href="puzzle__solver_8h.html">puzzle_solver.h</a></div><div class="ttdoc">Plik nagłówkowy modułu puzzle_game.</div></div>
+<div class="ttc" id="classgra_html_a4f33f2ac9ae43575cc569997999b0040"><div class="ttname"><a href="classgra.html#a4f33f2ac9ae43575cc569997999b0040">gra::is</a></div><div class="ttdeci">bool is</div><div class="ttdef"><b>Definition:</b> puzzle_game.h:32</div></div>
+<div class="ttc" id="classgra_html"><div class="ttname"><a href="classgra.html">gra</a></div><div class="ttdoc">The gra class klasa gra odpowiada za gre 8-puzzle.</div><div class="ttdef"><b>Definition:</b> puzzle_game.h:24</div></div>
+<div class="ttc" id="classgra_html_a53333ff512facc8ed09a436868aec6dd"><div class="ttname"><a href="classgra.html#a53333ff512facc8ed09a436868aec6dd">gra::is_move</a></div><div class="ttdeci">bool is_move</div><div class="ttdef"><b>Definition:</b> puzzle_game.h:33</div></div>
+<div class="ttc" id="classgra_html_aed9acbf7b5f82c3f0dea1ccca8eb6169"><div class="ttname"><a href="classgra.html#aed9acbf7b5f82c3f0dea1ccca8eb6169">gra::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> puzzle_game.h:30</div></div>
+<div class="ttc" id="classgra_html_a07546b16dcf06970a4681058f2e75463"><div class="ttname"><a href="classgra.html#a07546b16dcf06970a4681058f2e75463">gra::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> puzzle_game.h:31</div></div>
+<div class="ttc" id="classgra_html_a8862de0ab63b0683619eee1a1bd72854"><div class="ttname"><a href="classgra.html#a8862de0ab63b0683619eee1a1bd72854">gra::goal</a></div><div class="ttdeci">int ** goal</div><div class="ttdef"><b>Definition:</b> puzzle_game.h:26</div></div>
+<div class="ttc" id="classgra_html_a833dd3d9bdda648cd8577bf4b55374e4"><div class="ttname"><a href="classgra.html#a833dd3d9bdda648cd8577bf4b55374e4">gra::tab</a></div><div class="ttdeci">int ** tab</div><div class="ttdef"><b>Definition:</b> puzzle_game.h:28</div></div>
+<div class="ttc" id="classgra_html_adcf57011023ae68668fa242c3eb57302"><div class="ttname"><a href="classgra.html#adcf57011023ae68668fa242c3eb57302">gra::size</a></div><div class="ttdeci">int size</div><div class="ttdef"><b>Definition:</b> puzzle_game.h:27</div></div>
+<div class="ttc" id="class_a_s_html"><div class="ttname"><a href="class_a_s.html">AS</a></div><div class="ttdoc">klasa wykonująca Algorytm A*(system rozwiązujący grę)</div><div class="ttdef"><b>Definition:</b> puzzle_solver.h:61</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</body>
+</html>

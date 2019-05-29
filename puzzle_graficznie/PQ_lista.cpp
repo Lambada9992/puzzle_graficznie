@@ -1,3 +1,13 @@
+/**
+ * \file PQ_lista.cpp
+ * \brief Plik nagłówkowy modułu \a PQ_lista.
+ *
+ * Moduł \a PQ_lista zawiera definicję Kolejki priorytetowej
+ * oraz zestaw funkcji służących do zarządzania tą kolejka
+ *
+ * \see PQ_lista.h
+ */
+
 #include <iostream>
 #include <PQ_lista.h>
 

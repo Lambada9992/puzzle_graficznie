@@ -1,3 +1,12 @@
+/**
+ * \file mainwindow.cpp
+ * \brief Plik implementacji modułu \a mainwindow.
+ *
+ * Moduł \a mainwindow zawiera interfejs graficzny z wszystkimi funkcjami glownego okna
+ *
+ *
+ * \see mainwindow.h
+ */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -23,8 +32,6 @@ MainWindow::MainWindow(QWidget *parent) :
     load_to_game(1,2,3,4,5,6,7,8,0);
 
     //do animacji
-    group_animation=nullptr;
-    group_animation=new QSequentialAnimationGroup;
     a_pole=new QPropertyAnimation *[size_icon*size_icon];
     a_pole[0]=nullptr;
     a_pole[1] = new QPropertyAnimation(ui->pole_1,"geometry");
@@ -38,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     for(int i=1;i<size_icon*size_icon;i++)
 
-    a_pole[1]->setDuration(500);
+        a_pole[1]->setDuration(500);
     a_pole[2]->setDuration(500);
     a_pole[3]->setDuration(500);
     a_pole[4]->setDuration(500);
@@ -55,6 +62,7 @@ MainWindow::~MainWindow()
     for(int i=0;i<size_game*size_game;i++){
         delete a_pole[i];
     }
+    delete []a_pole;
     delete ui;
 }
 
@@ -144,10 +152,21 @@ void MainWindow::move(int u)
         a_pole[u]->start();
         y0=game.y;
         x0=game.x;
+        bool pom=true;
+        for(int i=0;i<game.size;i++){
+            for(int j=0;j<game.size;j++){
+                if(game.tab[i][j]!=game.goal[i][j]){
+                    pom=false;
+                }
+            }
         }
-
-
+        if(pom==true){
+            QMessageBox::information(this,tr("HOORAY!!!!!"),tr("GOOD GAME :3"));
+        }
     }
+
+
+}
 
 void MainWindow::on_pole_1_clicked()
 {
@@ -238,8 +257,15 @@ void MainWindow::on_actionWczytaj_gr_triggered()
             load_to_game(wczytywanie.get_pole1(),wczytywanie.get_pole2(),wczytywanie.get_pole3(),
                          wczytywanie.get_pole4(),wczytywanie.get_pole5(),wczytywanie.get_pole6(),
                          wczytywanie.get_pole7(),wczytywanie.get_pole8(),wczytywanie.get_pole9());
+        }else{
+            QMessageBox::warning(this,tr("error"),tr("Gra nie została wczytana ponieważ tablica nie została wypełniona prawidłowo!!!"));
         }
     }
 
 
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    close();
 }
